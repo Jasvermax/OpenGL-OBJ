@@ -45,7 +45,6 @@ int main(){
     Model model("assets/Tree.obj");
     Camera camera(800, 600, glm::vec3(0.0f, 0.0f, 3.0f));
 
-    // ---------------- RENDER LOOP ----------------
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
