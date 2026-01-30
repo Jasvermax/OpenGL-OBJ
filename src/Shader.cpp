@@ -3,8 +3,7 @@
 #include <sstream>
 #include <iostream>
 
-Shader::Shader(const char* vPath, const char* fPath)
-{
+Shader::Shader(const char* vPath, const char* fPath){
     std::ifstream vFile(vPath);
     std::ifstream fFile(fPath);
 
@@ -35,18 +34,15 @@ Shader::Shader(const char* vPath, const char* fPath)
     glDeleteShader(f);
 }
 
-void Shader::use()
-{
+void Shader::use(){
     glUseProgram(ID);
 }
 
-void Shader::setInt(const std::string& name, int value) const
-{
+void Shader::setInt(const std::string& name, int value) const{
     glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
 }
 
-void Shader::setMat4(const std::string& name, const glm::mat4& mat) const
-{
+void Shader::setMat4(const std::string& name, const glm::mat4& mat) const{
     glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()),
                        1, GL_FALSE, &mat[0][0]);
 }
